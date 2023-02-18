@@ -1,0 +1,27 @@
+(* subtract.while
+
+  Subtracts two numbers given as list [n,m] 
+  - where n and m are encodings of natural numbers as lists of nils  -
+  by returning the encoding of
+   n - m if n>m and 0 otherwise.
+  This program works on lists of lists of any kind though.  
+  What it does on lists n and m is 
+  returning the first list n with as many elements removed from the front
+  as the second list m contains.
+  This happens to be subtraction on lists of nils that encode numbers!
+
+   (c) 2008-17 Bernhard Reus 
+
+*)
+
+subtract read L
+ {  X:= hd L;
+	Y:= hd tl L;
+	while Y {
+		X:= tl X;
+		Y:= tl Y
+                 }
+           // If Y is greater than X then the subtraction
+           // will yield zero (nil) as tl nil = nil.
+}
+write X
